@@ -15,22 +15,29 @@ export default function MarketCard({ time, pair, price1, price2, change, low, hi
       <div className="flex items-start justify-between">
         <div className="flex flex-col gap-1">
           <span className="text-xs text-slate-400 dark:text-slate-500">{time}</span>
+
           <div className="flex items-center gap-2">
             <ReactCountryFlag countryCode={cur[base]} svg style={{ width: "1.5em", height: "1.5em" }} />
             <ReactCountryFlag countryCode={cur[quote]} svg style={{ width: "1.5em", height: "1.5em" }} />
             <h3 className="text-lg font-semibold dark:text-white">{pair}</h3>
           </div>
         </div>
-        <div className={`text-sm font-semibold ${pos ? "text-green-600" : "text-red-600"}`}>{change}</div>
+
+        <div className={`text-sm font-semibold ${pos ? "text-green-600" : "text-red-600"}`}>
+          {change}
+        </div>
       </div>
+
       <div className="mt-4">
         <div className="flex justify-between text-base font-semibold">
           <span className="text-slate-700 dark:text-slate-200">
             {intRest}
             <span className={pos ? "text-green-600" : "text-red-600"}>{oneDigit}.{decPart}</span>
           </span>
+
           <span className="text-slate-700 dark:text-slate-300">{price2}</span>
         </div>
+
         <div className="flex justify-between text-xs text-slate-500 dark:text-slate-400 mt-1">
           <span>{low}</span>
           <span>{high}</span>
